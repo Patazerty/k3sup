@@ -7,7 +7,7 @@ import (
 	"path"
 	"strings"
 
-	"github.com/alexellis/go-execute"
+        "github.com/alexellis/k3sup/pkg/execute"
 )
 
 func fetchChart(path, chart string) error {
@@ -129,11 +129,11 @@ func updateHelmRepos() error {
 	return nil
 }
 
-func helmInit() error {
+func helmInit(args []string) error {
 	task := execute.ExecTask{
 		Command: fmt.Sprintf("%s", localBinary("helm")),
 		Env:     os.Environ(),
-		Args:    []string{"init", "--client-only"},
+		Args:    args,
 	}
 	res, err := task.Execute()
 

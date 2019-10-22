@@ -15,6 +15,8 @@ func main() {
 
 	cmdApps := cmd.MakeApps()
 
+	cmdHelm := cmd.MakeHelm()
+
 	printk3supASCIIArt := cmd.PrintK3supASCIIArt
 
 	var rootCmd = &cobra.Command{
@@ -29,6 +31,7 @@ func main() {
 	rootCmd.AddCommand(cmdVersion)
 	rootCmd.AddCommand(cmdJoin)
 	rootCmd.AddCommand(cmdApps)
+	rootCmd.AddCommand(cmdHelm)
 
 	rootCmd.Execute()
 }

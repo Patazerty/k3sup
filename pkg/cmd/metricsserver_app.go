@@ -121,7 +121,7 @@ func tryDownloadHelm(userPath, clientArch, clientOS string) error {
 	if _, statErr := os.Stat(path.Join(path.Join(userPath, ".bin"), "helm")); statErr != nil {
 		downloadHelm(userPath, clientArch, clientOS)
 
-		err := helmInit()
+		err := helmInit([]string{"init", "--client-only"})
 		if err != nil {
 			return err
 		}
